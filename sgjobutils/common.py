@@ -1,8 +1,8 @@
 import re
 import string
 
+from .constants import Constants
 from .money import get_money
-
 
 # Constants for education
 PRIMARY = "primary"
@@ -10,17 +10,16 @@ SECONDARY = "secondary"
 ITE = "ITE"
 DIPLOMA = "diploma"
 DEGREE = "degree"
+NO_EDUCATION = "none"
 
 # Constants for experience level
 ENTRY = "entry"
 MANAGER = "manager"
 PROFESSIONAL = "professional"
 EXECUTIVE = "executive"
-
+NO_EXPERIENCE = "none"
 
 PRINTABLE = set(string.printable)
-
-
 
 def get_education_anchor(description_tokens, anchor):
 
@@ -93,7 +92,7 @@ def get_highest_qualification(qualifications):
     """
 
     if not qualifications:
-        return None
+        return NO_EDUCATION
 
     if DEGREE in qualifications:
         return DEGREE
@@ -106,7 +105,7 @@ def get_highest_qualification(qualifications):
     elif PRIMARY in qualifications:
         return PRIMARY
 
-    return None
+    return NO_EDUCATION
 
 
 def get_lowest_qualification(qualifications):
@@ -118,7 +117,7 @@ def get_lowest_qualification(qualifications):
     """
 
     if not qualifications:
-        return None
+        return NO_EDUCATION
 
     if PRIMARY in qualifications:
         return PRIMARY
@@ -131,7 +130,7 @@ def get_lowest_qualification(qualifications):
     elif DEGREE in qualifications:
         return DEGREE
 
-    return None
+    return NO_EDUCATION
 
 
 def num_from_string(num_string):
@@ -158,7 +157,7 @@ def num_from_string(num_string):
 def get_minimum_experience_level(levels):
 
     if not levels:
-        return None
+        return NO_EXPERIENCE
 
     if ENTRY in levels:
         return ENTRY
@@ -169,7 +168,7 @@ def get_minimum_experience_level(levels):
     if EXECUTIVE in levels:
         return EXECUTIVE
 
-    return None 
+    return NO_EXPERIENCE
 
 
 def get_minimum_years_experience(description):
@@ -322,3 +321,32 @@ def clean_html(html):
     cleantext = re.sub(cleanr, ' ', html)
     cleantext = " ".join(cleantext.split())
     return cleantext
+
+
+def is_engineering(title, description):
+
+    def in_list(description, l):
+        for token in l:
+            if token in description:
+                return True
+        return False
+
+    requisites = ['engine', 'technic', 'mechanic', 'chemical', 'aero', 'electronic', 'logistic']
+    title_requisites = ['engine', 'technic', 'mechanic', 'chemical', 'aero', 'electronic', 'logistic', 'process']
+    anti_requisites = ['software engine']
+    title = title.lower()
+    description = description.lower()
+
+    # Check anti-requisites
+    if in_list(title, anti_requisites):
+        return False
+    if in_list(description, anti_requisites):
+        return False
+
+    # Check requisites
+    if in_list(title, title_requisites):
+        return True
+    if in_list(description, requisites):
+        return True
+
+    return False
