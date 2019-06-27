@@ -40,7 +40,7 @@ def test_transformer_init_empty_row():
 
 
 def test_transform():
-    filename = 'sample_job.json'
+    filename = 'sample_job_jobscentral.json'
     with open('{}/{}'.format(SOURCE_FOLDER, filename), 'r') as f:
         data = json.load(f)
         transformed_row = JobscentralTransformer.transform_row(data)

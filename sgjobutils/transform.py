@@ -8,6 +8,7 @@ from .common import (clean_html,
                      get_minimum_experience_level,
                      is_engineering)
 from .money import get_money_from_single_word
+from .jobsbank import get_top_skills, sort_skills
 
 
 class Transformer:
@@ -57,7 +58,12 @@ class Transformer:
         'description',
         'is_engineering',
         'is_employment_agency',
-        'is_gig'
+        'is_gig',
+        'top_skill_1',
+        'top_skill_2',
+        'top_skill_3',
+        'top_skill_4',
+        'top_skill_5'
         ]
 
     # Experience level
@@ -205,6 +211,14 @@ class JobsbankTransformer(Transformer):
 
         new_row['is_gig'] = 0 #TODO: Implement
 
+        # Handle skills
+        skills = get_top_skills(sort_skills(row['skills']) ,5)
+        new_row['top_skill_1'] = skills[0]['id']
+        new_row['top_skill_2'] = skills[1]['id']
+        new_row['top_skill_3'] = skills[2]['id']
+        new_row['top_skill_4'] = skills[3]['id']
+        new_row['top_skill_5'] = skills[4]['id']
+
         return new_row
 
 
@@ -265,6 +279,8 @@ class FastjobsTransformer(Transformer):
         new_row['is_employment_agency'] = 0 #TODO: Implement
 
         new_row['is_gig'] = 0 #TODO: Implement
+
+        # Handle skills
 
         return new_row
 

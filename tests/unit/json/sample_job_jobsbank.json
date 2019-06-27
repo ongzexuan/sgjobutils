@@ -1,0 +1,406 @@
+{
+  "uuid": "aed3b839eecf7c29ae2a2edbb62c0048",
+  "sourceCode": "Employer Portal",
+  "title": "Mechanical Engineer",
+  "description": "<p><strong>Job Summary:</strong></p>  <p>To contribute to the success of design, development and commercialization of all company’s automated guided vehicles (AGV) platform and AGV related application products. This role is a design engineering role and the post holder has responsibility for the technical and engineering elements of new product development of AGV platform as well as providing support to his supervisors throughout the design and development phase.</p>  <p><strong>Main tasks:</strong></p>  <ul> \t<li>Conceptualise, design and develop mechanical system pertaining to new development of AGV system</li> \t<li>Design for manufacturing (DFM), Design for Assembly (DFA) and Concurrent Engineering</li> \t<li>Generate and maintain detail fabrication and assembly drawings, technical reports and documentation, design calculations and technical reports</li> \t<li>Participate and present mechanical designs at design reviews</li> \t<li>Responsible for mechanical/electro-mechanical component selection, material selection, tolerance analysis and system integration</li> \t<li>Assist and support in building of mechanical system</li> \t<li>Analyse, troubleshoot and resolve issues related to mechanical system</li> \t<li>Validation of design and develop testing protocols to ensure mechanical systems works to customers or business specification requirements</li> \t<li>Work closely with other disciplines to produce multidisciplinary design solutions</li> \t<li>Liaise with vendors and suppliers to ensure quality of delivered parts</li> </ul>",
+  "minimumYearsExperience": 2,
+  "shiftPattern": {
+    "id": 211,
+    "shiftPattern": "No Shift"
+  },
+  "schemes": [
+    {
+      "id": 4,
+      "scheme": "Career Support",
+      "startDate": "1977-05-25",
+      "expiryDate": "2055-05-04"
+    }
+  ],
+  "otherRequirements": "<p><strong>Requirements:</strong></p>  <ul> \t<li>Bachelor in Mechanical Engineering or equivalent</li> \t<li>Minimum of 3 years’ experience in product design and development</li> \t<li>Understanding of the regulatory (approval and compliance) needs relating to AGV systems</li> \t<li>Proficiency in Mechanical Design Software, preferably Solidworks (others like Catia, Pro-E, Autodesk Inventor, Solid Edge are also an advantage)</li> \t<li>Good understanding in mechanical fabrication processes such as sheetmetal works and CNC machining</li> \t<li>Good working knowledge in Application of analysis tools like Failure Mode and Effects analysis (FMEA), Design of Experiment (DOE), Finite Element Analysis (FEA)</li> \t<li>Process strong technical knowledge and fundamentals on Mechanics and Material</li> \t<li>Good understanding in Geometric dimensioning and Tolerance (GD&T), Stack up tolerance Analysis</li> \t<li>Strong analytical and problem solving skills</li> \t<li>Able to work independently with good interpersonal, verbal and written communication skills</li> \t<li>Willingness to learn and develop new skills and knowledge</li> \t<li>Willing to travel to customer’s sites, in Singapore and abroad</li> \t<li>Desire to work in a fast-paced, dynamic, small-team environment</li> \t<li>Strong sense of initiative and rock-solid team spirit</li> </ul>",
+  "ssocCode": 2733,
+  "workingHours": null,
+  "numberOfVacancies": 2,
+  "applicationUrl": "https://www.myskillsfuture.sg/content/portal/en/jobsbank/job-landing/job_directory/job-details.html?jobId=JOB-2019-0134550&applyJob=true",
+  "psdUrl": null,
+  "categories": [
+    {
+      "id": 11,
+      "category": "Engineering"
+    }
+  ],
+  "employmentTypes": [
+    {
+      "id": 8,
+      "employmentType": "Full Time"
+    }
+  ],
+  "positionLevels": [
+    {
+      "id": 9,
+      "position": "Executive"
+    }
+  ],
+  "status": {
+    "id": 102,
+    "jobStatus": "Open"
+  },
+  "skills": [
+    {
+      "id": 350,
+      "skill": "ANSYS",
+      "source": "JOBKRED",
+      "confidence": 1.17647,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/350"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/350/jobs"
+        }
+      }
+    },
+    {
+      "id": 570,
+      "skill": "AutoCAD",
+      "source": "JOBKRED",
+      "confidence": 5,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/570"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/570/jobs"
+        }
+      }
+    },
+    {
+      "id": 1061,
+      "skill": "CAD",
+      "source": "JOBKRED",
+      "confidence": 3.33333,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/1061"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/1061/jobs"
+        }
+      }
+    },
+    {
+      "id": 2381,
+      "skill": "Design for Manufacturing",
+      "source": "JOBKRED",
+      "confidence": 1.66667,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/2381"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/2381/jobs"
+        }
+      }
+    },
+    {
+      "id": 2953,
+      "skill": "Engineering",
+      "source": "JOBKRED",
+      "confidence": 20,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/2953"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/2953/jobs"
+        }
+      }
+    },
+    {
+      "id": 2959,
+      "skill": "Engineering Management",
+      "source": "JOBKRED",
+      "confidence": 1.25,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/2959"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/2959/jobs"
+        }
+      }
+    },
+    {
+      "id": 3401,
+      "skill": "Finite Element Analysis",
+      "source": "JOBKRED",
+      "confidence": 2,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/3401"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/3401/jobs"
+        }
+      }
+    },
+    {
+      "id": 4256,
+      "skill": "HVAC",
+      "source": "JOBKRED",
+      "confidence": 1.05263,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/4256"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/4256/jobs"
+        }
+      }
+    },
+    {
+      "id": 5025,
+      "skill": "Lean Manufacturing",
+      "source": "JOBKRED",
+      "confidence": 1,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5025"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5025/jobs"
+        }
+      }
+    },
+    {
+      "id": 5347,
+      "skill": "Manufacturing",
+      "source": "JOBKRED",
+      "confidence": 4,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5347"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5347/jobs"
+        }
+      }
+    },
+    {
+      "id": 5440,
+      "skill": "Matlab",
+      "source": "JOBKRED",
+      "confidence": 1.53846,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5440"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5440/jobs"
+        }
+      }
+    },
+    {
+      "id": 5469,
+      "skill": "Mechanical Engineering",
+      "source": "JOBKRED",
+      "confidence": 10,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5469"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5469/jobs"
+        }
+      }
+    },
+    {
+      "id": 5628,
+      "skill": "Microsoft Office",
+      "source": "JOBKRED",
+      "confidence": 1.42857,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5628"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/5628/jobs"
+        }
+      }
+    },
+    {
+      "id": 7012,
+      "skill": "Pro Engineer",
+      "source": "JOBKRED",
+      "confidence": 2.22222,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7012"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7012/jobs"
+        }
+      }
+    },
+    {
+      "id": 7063,
+      "skill": "Product Design",
+      "source": "JOBKRED",
+      "confidence": 1.33333,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7063"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7063/jobs"
+        }
+      }
+    },
+    {
+      "id": 7064,
+      "skill": "Product Development",
+      "source": "JOBKRED",
+      "confidence": 2.85714,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7064"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7064/jobs"
+        }
+      }
+    },
+    {
+      "id": 7147,
+      "skill": "Project Engineering",
+      "source": "JOBKRED",
+      "confidence": 2.5,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7147"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7147/jobs"
+        }
+      }
+    },
+    {
+      "id": 7154,
+      "skill": "Project Management",
+      "source": "JOBKRED",
+      "confidence": 1.81818,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7154"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7154/jobs"
+        }
+      }
+    },
+    {
+      "id": 7357,
+      "skill": "R&D",
+      "source": "JOBKRED",
+      "confidence": 1.11111,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7357"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/7357/jobs"
+        }
+      }
+    },
+    {
+      "id": 8398,
+      "skill": "Solidworks",
+      "source": "JOBKRED",
+      "confidence": 6.66667,
+      "_links": {
+        "self": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/8398"
+        },
+        "jobs": {
+          "href": "https://api.mycareersfuture.sg/v2/skills/8398/jobs"
+        }
+      }
+    }
+  ],
+  "postedCompany": {
+    "uen": "201700849N",
+    "description": "<p>SESTO Robotics is a leading robotics company in the field of autonomous technology. Headquartered in Singapore, the company engineers and delivers robotics solutions to global clients seeking to empower their businesses with greater efficiency.</p>\n\n<p>SESTO Robotics’ line of automated guided vehicles is a sustainable solution that has been employed by industry leaders in the field of semiconductor manufacturing and warehousing. (www.sestorobotics.com)</p>\n\n<p>SESTO Robotics is a part of the HOPE Technik family.</p>\n\n<p> </p>\n",
+    "logoFileName": null,
+    "logoUploadPath": null,
+    "name": "SESTO ROBOTICS PTE. LTD.",
+    "ssicCode": 31,
+    "badges": [],
+    "_links": {
+      "self": {
+        "href": "https://api.mycareersfuture.sg/v2/companies/201700849N"
+      },
+      "jobs": {
+        "href": "https://api.mycareersfuture.sg/v2/companies/201700849N/jobs"
+      }
+    }
+  },
+  "hiringCompany": null,
+  "address": {
+    "overseasCountry": null,
+    "foreignAddress1": null,
+    "foreignAddress2": null,
+    "block": "6",
+    "street": "PENJURU CLOSE",
+    "floor": null,
+    "unit": null,
+    "building": null,
+    "postalCode": "608614",
+    "isOverseas": false,
+    "districts": [
+      {
+        "id": 22,
+        "location": "D22 Jurong, Jurong Island, Tuas",
+        "region": "West",
+        "sectors": [
+          "60",
+          "61",
+          "62",
+          "63",
+          "64"
+        ],
+        "regionId": "West"
+      }
+    ],
+    "lat": 1.31278207030829,
+    "lng": 103.729804342932
+  },
+  "metadata": {
+    "jobPostId": "JOB-2019-0134550",
+    "deletedAt": null,
+    "createdAt": "2019-06-27T01:28:58.000Z",
+    "updatedAt": "2019-06-27T01:32:06.000Z",
+    "updateCount": 1,
+    "totalNumberOfView": 17,
+    "newPostingDate": "2019-06-27",
+    "originalPostingDate": "2019-06-27",
+    "expiryDate": "2019-07-27",
+    "totalNumberJobApplication": 0,
+    "isPostedOnBehalf": false,
+    "isHideSalary": false,
+    "isHideCompanyAddress": false,
+    "isHideHiringEmployerName": false,
+    "isHideEmployerName": false
+  },
+  "salary": {
+    "maximum": 5500,
+    "minimum": 3800,
+    "type": {
+      "id": 4,
+      "salaryType": "Monthly"
+    }
+  },
+  "_links": {
+    "self": {
+      "href": "https://api.mycareersfuture.sg/v2/jobs/aed3b839eecf7c29ae2a2edbb62c0048"
+    }
+  }
+}
