@@ -37,7 +37,7 @@ def get_money_from_single_word(word):
     :return: integer indicating the monetary value of the string, else -1
     """
 
-    word = word.lower()
+    word = word.lower().strip()
     pos = word.rfind("$")
 
     # Defensive programming
@@ -72,7 +72,7 @@ def get_money_from_single_word(word):
     stripped = comma_removal(money_string)
 
     # Somehow failed to get numeric value
-    if not stripped.replace(".","").isdigit():
+    if not stripped.replace(".", "").isdigit():
         return -1
 
     amount = float(stripped)

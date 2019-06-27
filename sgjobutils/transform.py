@@ -7,6 +7,7 @@ from .common import (clean_html,
                      get_minimum_years_experience,
                      get_minimum_experience_level,
                      is_engineering)
+from .money import get_money_from_single_word
 
 
 class Transformer:
@@ -54,7 +55,9 @@ class Transformer:
         'date_last_seen',
         'source',
         'description',
-        'is_engineering'
+        'is_engineering',
+        'is_employment_agency',
+        'is_gig'
         ]
 
     # Experience level
@@ -198,6 +201,10 @@ class JobsbankTransformer(Transformer):
         # Get is engineering
         new_row['is_engineering'] = 1 if is_engineering(row['title'], description) else 0
 
+        new_row['is_employment_agency'] = 1 if row['metadata']['isPostedOnBehalf'] else 0
+
+        new_row['is_gig'] = 0 #TODO: Implement
+
         return new_row
 
 
@@ -255,41 +262,121 @@ class FastjobsTransformer(Transformer):
         # Get is engineering
         new_row['is_engineering'] = 1 if is_engineering(row['title'], description) else 0
 
+        new_row['is_employment_agency'] = 0 #TODO: Implement
+
+        new_row['is_gig'] = 0 #TODO: Implement
+
         return new_row
 
 
-    class JobscentralTransformer(Transformer):
+class JobscentralTransformer(Transformer):
 
-        @classmethod
-        def get_education(cls, educational_string):
-            strings = educational_string.split(',')
-            educational_strings = []
-            if 'drnol' in strings:
-                educational_strings.append()
+    jobscentral_education = {
+        'drin14': 'diploma',            # diploma
+        'dr32': 'degree',               # bachelor's/honors
+        'drucdr': 'degree',             # master's/phd
+        'drite': 'ITE',                 # ITE
+        'dral': 'diploma',              # 'a' levels
+        'drnol': 'primary/secondary'    # 'o'/'n' levels
+    }
 
-        @classmethod
-        def map_position(cls, position):
-            pass
+    jobscentral_experience = {
+        '0': 'entry',       # 'Entry Level'
+        '1': 'manager',     # 'Experienced'
+        '2': 'manager',     # 'Manager'
+        '3': 'manager',     # 'Senior Manager'
+        '4': 'executive',   # 'Top Management'
+        '5': 'entry'        # 'Student Job'
+    }
 
-        @classmethod
-        def transform_row(cls, row):
+    @classmethod
+    def clean_text(cls, description):
+        return description.replace('&rsquo;', "'")\
+                          .replace('&hellip;', '.')\
+                          .replace('&nbsp;', ' ')\
+                          .replace('&amp;', '&')
 
-            new_row = cls.init_empty_row()
+    @classmethod
+    def get_education(cls, educational_string):
+        strings = educational_string.split(',')
+        educational_strings = []
+        for string in strings:
+            ed = cls.jobscentral_education.get(string, None)
+            if ed:
+                educational_strings.append(ed)
+        return educational_strings
 
-            description = row.get('jobDescription', '')
-            description = clean_non_ascii(clean_html(description))
+    @classmethod
+    def get_experience(cls, position_string):
+        strings = position_string.split(',')
+        experience_strings = []
+        for string in strings:
+            pos = cls.jobscentral_experience.get(string, None)
+            if pos:
+                experience_strings.append(pos)
+        return pos
 
-            new_row['source_id'] = row['id']
+    @classmethod
+    def get_money(cls, money_string):
+        money_parts = money_string.split('-')
+        if len(money_parts) == 2:
+            low = int(money_parts[0].strip().replace(',', ''))
+            high = int(money_parts[1].strip().split(' ')[0].split('.')[0].replace(',', ''))
+            print(low, high)
+            return low, high
 
-            new_row['title'] = row['jobTitle']
+        elif len(money_parts) == 1:
+            val = int(money_parts[0].strip().replace(',', ''))
+            return val, val
 
-            new_row['uen'] = 'none' # No UEN for JobsCentral
+        else:
+            return 0, 0
 
-            new_row['company_name'] = row['company']
+    @classmethod
+    def map_position(cls, position):
+        pass
 
-            new_row['minimum_qualification'] = get_lowest_qualification(get_education(description))
+    @classmethod
+    def transform_row(cls, row):
 
-            new_row['minimum_years_experience'] = get_minimum_years_experience(description)
+        new_row = cls.init_empty_row()
 
-            new_row['experience_level'] = 'none'
+        description = '{} {}'.format(row.get('jobDescription', ''), row.get('companyProfiles', ''))
+        description = clean_non_ascii(cls.clean_text(clean_html(description)))
 
+        new_row['source_id'] = row['id']
+
+        new_row['title'] = row['jobTitle']
+
+        new_row['uen'] = 'none' # No UEN for JobsCentral, need backfill
+
+        new_row['company_name'] = row['company']
+
+        new_row['minimum_qualification'] = get_lowest_qualification(cls.get_education(row['qualification']))
+
+        new_row['minimum_years_experience'] = get_minimum_years_experience(description)
+
+        new_row['experience_level'] = get_minimum_experience_level(cls.get_experience(row['position']))
+
+        new_row['num_vacancies'] = 1  # Default assume one job posting is 1 vacancy
+
+        sal_low, sal_high = cls.get_money(row['payHighLow'])
+        new_row['salary_min'] = sal_low
+        new_row['salary_max'] = sal_high
+        new_row['salary_avg'] = int((sal_high + sal_low) / 2)
+
+        new_row['date_posted'] = row['postDate'].split('T')[0]
+        new_row['date_expire'] = row['endDate'].split('T')[0]
+
+        new_row['source'] = 'jobscentral'
+
+        new_row['description'] = description
+
+        # Only use description information so that company information is not inside
+        new_row['is_engineering'] = 1 if is_engineering(row['jobTitle'], row.get('jobDescription', '')) else 0
+
+        new_row['is_employment_agency'] = 1 if len(row.get('eaLicenceNo', '')) > 0 else 0
+
+        new_row['is_gig'] = 0  # TODO: Implement
+
+        return new_row

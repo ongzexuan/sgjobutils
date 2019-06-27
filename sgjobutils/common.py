@@ -7,6 +7,7 @@ from .money import get_money
 # Constants for education
 PRIMARY = "primary"
 SECONDARY = "secondary"
+PRIMARY_SECONDARY = "primary/secondary"
 ITE = "ITE"
 DIPLOMA = "diploma"
 DEGREE = "degree"
@@ -100,6 +101,8 @@ def get_highest_qualification(qualifications):
         return DIPLOMA
     elif ITE in qualifications:
         return ITE
+    elif PRIMARY_SECONDARY in qualifications:
+        return PRIMARY_SECONDARY
     elif SECONDARY in qualifications:
         return SECONDARY
     elif PRIMARY in qualifications:
@@ -119,7 +122,9 @@ def get_lowest_qualification(qualifications):
     if not qualifications:
         return NO_EDUCATION
 
-    if PRIMARY in qualifications:
+    if PRIMARY_SECONDARY in qualifications:
+        return PRIMARY_SECONDARY
+    elif PRIMARY in qualifications:
         return PRIMARY
     elif SECONDARY in qualifications:
         return SECONDARY
