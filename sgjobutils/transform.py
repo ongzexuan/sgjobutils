@@ -86,6 +86,9 @@ class Transformer:
         row['salary_min'] = 0
         row['salary_avg'] = 0
         row['ssoc'] = 0
+        row['is_engineering'] = False
+        row['is_employment_agency'] = False
+        row['is_gig'] = False
         row['top_skill_1'] = 0
         row['top_skill_2'] = 0
         row['top_skill_3'] = 0
