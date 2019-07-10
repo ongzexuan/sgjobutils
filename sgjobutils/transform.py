@@ -376,7 +376,9 @@ class JobscentralTransformer(Transformer):
 
         new_row['num_vacancies'] = 1  # Default assume one job posting is 1 vacancy
 
-        sal_low, sal_high = cls.get_money(row['payHighLow'])
+        sal_low, sal_high = 0, 0
+        if row['payHighLow'].isdigit():
+            sal_low, sal_high = cls.get_money(row['payHighLow'])
         new_row['salary_min'] = sal_low
         new_row['salary_max'] = sal_high
         new_row['salary_avg'] = int((sal_high + sal_low) / 2)
