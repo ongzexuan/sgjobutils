@@ -1,14 +1,19 @@
 from operator import itemgetter
 
 
-def sort_skills(skills):
+def sort_skills(skills, skill_count):
     """
     Given a list of skills, sort them by their confidence level
     in descending order. Cleans up irrelevant skills
     :param skills: list of skill objects, each with a confidence value
     :return: sorted list of skills, with irrelevant fields removed
     """
-    new_skills = [{'id': skill['id'], 'skill': skill['skill'], 'confidence': skill['confidence']} for skill in skills]
+
+    skill_count = [n + 1 for n in skill_count]  # Fix divide by zero errors
+    new_skills = [{'id': skill['id'],
+                   'skill': skill['skill'],
+                   'confidence': skill['confidence'] / skill_count[skill['id']]}
+                  for skill in skills]
     return sorted(new_skills, key=itemgetter('confidence'), reverse=True)
 
 

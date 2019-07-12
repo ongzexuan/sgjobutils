@@ -143,7 +143,7 @@ class JobsbankTransformer(Transformer):
         return 'manager'
 
     @classmethod
-    def transform_row(cls, row):
+    def transform_row(cls, row, skill_count):
 
         new_row = cls.init_empty_row()
 
@@ -220,7 +220,7 @@ class JobsbankTransformer(Transformer):
         new_row['is_gig'] = 0 #TODO: Implement
 
         # Handle skills
-        skills = get_top_skills(sort_skills(row['skills']) ,5)
+        skills = get_top_skills(sort_skills(row['skills'], skill_count), 5)
         new_row['top_skill_1'] = skills[0]['id']
         new_row['top_skill_2'] = skills[1]['id']
         new_row['top_skill_3'] = skills[2]['id']
