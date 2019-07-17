@@ -19,7 +19,7 @@
   "categoriesCodes": "JN003,JN033,JN156,JN056",
   "productId": "JCPRI1SG",
   "isJcef": false,
-  "payHighLow": "1,000 - 3,000 SGD / Year",
+  "payHighLow": "1,000 - 3,000 SGD / Month",
   "hideSalary": true,
   "useMicrosite": false,
   "nature": "jtft",

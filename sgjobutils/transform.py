@@ -342,19 +342,20 @@ class JobscentralTransformer(Transformer):
 
     @classmethod
     def get_money(cls, money_string):
+        print("GETTING MONEY")
         money_parts = money_string.split('-')
+
         if len(money_parts) == 2:
-            low = int(money_parts[0].strip().replace(',', ''))
-            high = int(money_parts[1].strip().split(' ')[0].split('.')[0].replace(',', ''))
-            print(low, high)
-            return low, high
+            low = money_parts[0].strip().replace(',', '')
+            high = money_parts[1].strip().split(' ')[0].split('.')[0].replace(',', '')
+            return int(low), int(high)
 
         elif len(money_parts) == 1:
             val = int(money_parts[0].strip().replace(',', ''))
             return val, val
 
         else:
-            return 0, 0
+            return 5, 6
 
     @classmethod
     def map_position(cls, position):
@@ -384,12 +385,19 @@ class JobscentralTransformer(Transformer):
 
         new_row['num_vacancies'] = 1  # Default assume one job posting is 1 vacancy
 
-        sal_low, sal_high = 0, 0
-        if row['payHighLow'].isdigit():
-            sal_low, sal_high = cls.get_money(row['payHighLow'])
+        # We will just extract regardless of whether the salary is hidden or not
+        sal_low, sal_high = cls.get_money(row['payHighLow'])
+        if sal_high < sal_low:
+            sal_high = sal_low
         new_row['salary_min'] = sal_low
         new_row['salary_max'] = sal_high
         new_row['salary_avg'] = int((sal_high + sal_low) / 2)
+
+        # Placeholder default value for certain places
+        if (sal_low == 123 and sal_high == 321) or "Month" not in row['payHighLow']:
+            new_row['salary_min'] = 0
+            new_row['salary_max'] = 0
+            new_row['salary_avg'] = 0
 
         new_row['date_posted'] = row['postDate'].split('T')[0]
         new_row['date_expire'] = row['endDate'].split('T')[0]
