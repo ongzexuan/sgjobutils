@@ -95,3 +95,8 @@ def test_get_money():
     low, high = JobscentralTransformer.get_money(money_string)
     assert low == 20
     assert high == 50
+
+    money_string = "20.00 - 50.00 SGD / Month"
+    low, high = JobscentralTransformer.get_money(money_string)
+    assert low == 20
+    assert high == 50

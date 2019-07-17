@@ -342,18 +342,19 @@ class JobscentralTransformer(Transformer):
 
     @classmethod
     def get_money(cls, money_string):
-        print("GETTING MONEY")
         money_parts = money_string.split('-')
 
         if len(money_parts) == 2:
-            low = money_parts[0].strip().replace(',', '')
+            low = money_parts[0].strip().replace(',', '').split('.')[0]
             high = money_parts[1].strip().split(' ')[0].split('.')[0].replace(',', '')
             return int(low), int(high)
 
         elif len(money_parts) == 1:
-            val = int(money_parts[0].strip().replace(',', ''))
-            return val, val
-
+            val = money_parts[0].strip().replace(',', '')
+            if val.isdigit():
+                return int(val), int(val)
+            else:
+                return 0, 0
         else:
             return 5, 6
 
@@ -378,6 +379,10 @@ class JobscentralTransformer(Transformer):
         new_row['company_name'] = row['company']
 
         new_row['minimum_qualification'] = get_lowest_qualification(cls.get_education(row['qualification']))
+
+        # If explicit field does not provide, then fall back on other extraction mechanism
+        if new_row['minimum_qualification'] == 'none':
+            new_row['minimum_qualification'] = get_lowest_qualification(get_education(description))
 
         new_row['minimum_years_experience'] = get_minimum_years_experience(description)
 
