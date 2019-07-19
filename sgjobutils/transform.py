@@ -1,3 +1,6 @@
+import csv
+import os
+
 from collections import OrderedDict
 from .industry import get_industry_mapping
 from .common import (clean_html,
@@ -7,8 +10,9 @@ from .common import (clean_html,
                      get_minimum_years_experience,
                      get_minimum_experience_level,
                      is_engineering)
-from .money import get_money_from_single_word
 from .jobsbank import get_top_skills, sort_skills
+
+ACRA_FILE_SHORT = 'acra_short.csv'
 
 
 class Transformer:
@@ -313,6 +317,28 @@ class JobscentralTransformer(Transformer):
         '5': 'entry'        # 'Student Job'
     }
 
+    uen_map = None
+
+    @classmethod
+    def init_uen_map(cls):
+        if cls.uen_map:
+            return
+        cls.uen_map = {}
+        dir_path = os.path.join(os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))), ACRA_FILE_SHORT)
+        with open(dir_path, 'r') as f:
+            reader = csv.reader(f)
+            next(reader, None)
+            for row in reader:
+                name = row[1].lower()
+                uen = row[0]
+                cls.uen_map[name] = uen
+
+    @classmethod
+    def get_uen_from_name(cls, name):
+        if not cls.uen_map:
+            cls.init_uen_map()
+        return cls.uen_map.get(name.lower(), None)
+
     @classmethod
     def clean_text(cls, description):
         return description.replace('&rsquo;', "'")\
@@ -374,7 +400,7 @@ class JobscentralTransformer(Transformer):
 
         new_row['title'] = row['jobTitle']
 
-        new_row['uen'] = 'none' # No UEN for JobsCentral, need backfill
+        new_row['uen'] = cls.get_uen_from_name(row['company']) # No UEN for JobsCentral, need backfill
 
         new_row['company_name'] = row['company']
 

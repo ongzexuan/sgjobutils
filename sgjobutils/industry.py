@@ -57,20 +57,12 @@ def get_backup_mapping_dict(filename):
 
 # Load mapping
 MAPPING_FILE = 'industry_mappings.csv'
-# dir_path = os.path.dirname(os.path.realpath(__file__))
-# last_index = dir_path.rfind('/')
-# dir_path = dir_path[0: last_index] + '/sgjobutils/' + MAPPING_FILE
-
 dir_path = os.path.join(os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))), MAPPING_FILE)
 d2010, d2015 = get_mapping_dict(dir_path)
 
 
 # Load backup mapping
 BACKUP_MAPPING_FILE = 'industry_mapping_fallback.csv'
-# dir_path = os.path.dirname(os.path.realpath(__file__))
-# last_index = dir_path.rfind('/')
-# dir_path = dir_path[0: last_index] + '/sgjobutils/' + BACKUP_MAPPING_FILE
-
 dir_path = os.path.join(os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))), BACKUP_MAPPING_FILE)
 backup_mapping = get_backup_mapping_dict(dir_path)
 

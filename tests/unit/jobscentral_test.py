@@ -53,7 +53,7 @@ def test_transform():
         # Assert data is correctly transformed
         assert transformed_row['source_id'] == 'J3T5YM6K0G1J9F80JDX'
         assert transformed_row['title'] == 'Apple Genius - Technical Customer Service'
-        assert transformed_row['uen'] == 'none'
+        assert transformed_row['uen'] is None
         assert transformed_row['company_name'] == 'Apple Inc.'
         assert transformed_row['minimum_qualification'] == 'ITE'
         assert transformed_row['experience_level'] == 'manager'
